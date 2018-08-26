@@ -32,9 +32,9 @@ export default class extends Component {
   };
 
   render() {
-    const { className, value, onChange, ...props } = this.props;
+    const { className, onChange, ...props } = this.props;
     return (
-      <ReactUpload onChange={this._onChange} />
+      <ReactUpload onChange={this._onChange} {...props}/>
     );
   }
 }

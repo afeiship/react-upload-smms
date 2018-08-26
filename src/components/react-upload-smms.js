@@ -25,9 +25,14 @@ export default class extends Component {
   _onChange = inEvent => {
     const { onChange } = this.props;
     const { value } = inEvent.target;
-    NxFileUpload(SMMS_API,{ files: value },{ name: 'smfile'}).then(response => {
-      const _response = JSON.parse(response);
-      onChange({ target: { value: _response.data } });
+    const apis = nx.map(value,(_,file)=>{
+      return NxFileUpload(SMMS_API, { smfile: file });
+    });
+
+    Promise.all(apis).then(reponses=>{
+      const _response = reponses.map(response=>JSON.parse(response).data);
+      console.log(_response);
+      onChange({ target: { value: _response } });
     });
   };
 

@@ -30,3 +30,6 @@ $react-upload-smms-options:(
 ```jsx
 BACKUP_USAGE
 ```
+
+## resouces:
++ https://sm.ms/

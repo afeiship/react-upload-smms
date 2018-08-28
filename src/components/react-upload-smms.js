@@ -31,7 +31,6 @@ export default class extends Component {
 
     Promise.all(apis).then(reponses=>{
       const _response = reponses.map(response=>JSON.parse(response).data);
-      console.log(_response);
       onChange({ target: { value: _response } });
     });
   };
